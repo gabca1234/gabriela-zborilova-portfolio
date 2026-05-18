@@ -1,0 +1,441 @@
+/* Vynulování okrajů a nastavení písma */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; 
+}
+
+:root {
+    --bg-color: #7e7373;        /* Hlavní šedé pozadí (podobné tvému obrázku) */
+    --second-bg-color: #5a5a5a; /* Trochu tmavší šedá pro předěly */
+    --text-color: #ffffff;      /* Bílá pro text */
+    --main-color: #FAD0C9;      /* Tvoje nová růžová */
+}
+
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 10%;
+    background: rgba(31, 36, 45, 0.8); /* Průhledné pozadí */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--main-color); 
+}
+
+.navbar ul{
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar a {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 35px;
+    transition: .3s;
+}
+
+.navbar a:hover {
+    color: var(--main-color);
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.home {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 10px;
+    padding-left: 10%;
+    padding-right: 10%;
+
+}
+
+.home-content {
+    flex: 0 0 50%;
+}
+
+.home-content h3 {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--main-color);
+}
+
+.home-content h1 {
+    font-size: 60px;
+    font-weight: 700;
+    margin: -3px 0;
+}
+
+.home-content p {
+    font-size: 18px;
+    margin: 20px 0;
+}
+
+/* Stylování tlačítka */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--main-color);
+    padding: 12px 28px;
+    box-shadow: 0 0 10px var(--main-color);
+    font-size: 16px;
+    color: var(--bg-color);
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .5s ease;
+}
+
+.btn:hover {
+    background: var(--text-color);
+    box-shadow: none;
+}
+
+/* LEVÁ STRANA - KONTEJNER PRO FOTKU */
+.home-img {
+    flex: 0 0 40%; /* Pořád zabírá 40% šířky webu */
+    height: 100vh;  /* Ale kontejner je vysoký přes celou obrazovku */
+    display: flex;   /* Abychom mohli fotku uvnitř vycentrovat */
+    justify-content: center; /* Vycentrovat horizontálně */
+    align-items: center;     /* Vycentrovat vertikálně */
+    padding: 20px;   /* Trochu prostoru od okrajů */
+}
+
+/* SAMOTNÁ FOTKA - Tady dáme ty malé rozměry */
+.home-img img {
+    /* Nastavíme fixní velikost - tohle je ta změna! */
+    width: 400px;  /* Zkus třeba 250px nebo 300px, uvidíš, co je lepší */
+    height: 500px; /* Musí být stejné jako width pro kruh */
+    
+    /* Aby se fotka nedeformovala, když má fixní rozměry */
+    object-fit: cover; 
+    border-radius: 70px; /*zaobleni rohu*/
+    /* Vracíme kulatý moderní vzhled a záři */
+    border: 5px solid var(--main-color); /* Růžový okraj */
+    box-shadow: 0 0 25px var(--main-color); /* Růžová záře */
+}
+
+
+.section {
+    height: auto;
+    min-height: 200px;
+    justify-content: center;
+    padding: 120px 15%;
+    overflow: hidden;
+}
+
+.section h2 {
+    font-size:40px;
+    color: var(--main-color);
+    margin-bottom: 20px;
+    margin-top: 30px;
+    text-shadow: 0 0 3px var(--main-color);
+    
+}
+
+.section h3{
+    font-size: 24px;
+    color: rgb(254, 212, 212);
+    margin-top: 70px;
+    margin-bottom: 20px;
+}
+
+.section p {
+    font-size: 20px;
+    width: 95%;
+    text-align: justify;
+    margin-top: 70px;
+    line-height: 1.7;
+    padding: 2.5rem;
+    border-left: 4px solid var(--main-color);
+    background: #ffffff08;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+.section p:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+
+
+/* Ikony sociálních sítí */
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    font-size: 30px;
+    color: var(--main-color);
+    margin: 30px 15px 30px 0;
+    transition: .5s ease;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--main-color);
+}
+
+/* Button na prohlednuti projektu na titulni strance */
+.btn-projekty a{
+    display: inline-block;
+    padding: 12px 28px;
+    background: var(--main-color);
+    border-radius: 40px; /* Pilulkový tvar */
+    box-shadow: 0 0 15px var(--main-color);
+    font-size: 16px;
+    color: var(--second-bg-color); /* Tmavý text pro kontrast */
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .5s ease;
+    border: 2px solid var(--main-color);
+}
+
+.btn-projekty a:hover {
+    background: transparent;
+    color: var(--main-color) !important;
+    box-shadow: 0 0 25px var(--main-color) !important;
+    transform: translateY(-3px); /* Jemné nadzvednutí při najetí */
+}
+
+
+.dropdown-content {
+    display: none; /* Schováme menu */
+    position: absolute; /* Aby "plulo" nad obsahem a neposouvalo stránku */
+    background-color: var(--second-bg-color); /* Trochu jiné pozadí pro odlišení */
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    z-index: 1;
+    list-style: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Odkazy uvnitř rozbaleného menu */
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block; /* Každý odkaz na nový řádek */
+    font-size: 16px;
+    margin-left: 0; /* Zrušíme odsazení z navbaru */
+}
+
+.dropdown-content li a{
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 8px 12px;
+}
+
+.dropdown-content li a:hover{
+    color: var(--second-bg-color);
+}
+
+/* Změna barvy při najetí na odkaz v menu */
+.dropdown-content a:hover {
+    background-color: var(--main-color);
+    color: var(--bg-color);
+}
+
+/* KLÍČOVÝ MOMENT: Zobrazit menu, když najedu na .dropdown */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nadpis-ornament {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+    text-align: left; /* Nebo center, podle tvého webu */
+}
+
+.nadpis-ornament h2 {
+    position: relative;
+    display: inline-block;
+    background-color: transparent; /* Pokud chceš, aby vlnka prosvítala skrz */
+}
+
+.ornament {
+    position: absolute;
+    top: 97%; /* Vertikální vycentrování k nadpisu */
+    left: 0;
+    transform: translateY(-50%); /* Přesné zarovnání na střed textu */
+    width: 100vw; /* Přes celou šířku prohlížeče */
+    height: 90px; /* Výška vlnovky - čím menší, tím plošší vlna bude */
+    
+    pointer-events: none;
+    /* Pokud chceš, aby vlnka ignorovala padding sekce a šla až do krajů: */
+    margin-left: calc(-50vw + 50%); 
+}
+
+.ornament path {
+    fill: none;
+    stroke: var(--main-color); /* Tvoje fialová */
+    stroke-width: 1; /* Jemnější linie pro vlnku */
+    stroke-linecap: round;
+}
+
+
+.projekty {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+/* Grid pro projekty */
+.projekty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+}
+
+/* Jednotlivá karta projektu */
+.projekt-card {
+    background: #ffffff10;
+    border: 1px solid #ffffff30;
+    border-radius: 16px;
+    padding: 1.8rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover efekt – jemné nadzvednutí */
+.projekt-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+/* Obrázek projektu */
+.projekt-img {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.projekt-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+/* Jemný zoom obrázku při hoveru */
+.projekt-card:hover .projekt-img img {
+    transform: scale(1.05);
+}
+
+/* Nadpis projektu */
+.projekt-card h3 {
+    font-size: 22px;
+    color: var(--main-color);
+    margin-top: 10px;
+}
+
+/* Text projektu */
+.projekt-card p {
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: left;
+    padding: 0;
+    border: none;
+    background: transparent;
+    margin-top: 0;
+}
+
+/* Tlačítko v kartě */
+.projekt-btn {
+    margin-top: auto;
+    align-self: flex-start;
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--main-color);
+    color: var(--second-bg-color);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    box-shadow: 0 0 12px var(--main-color);
+    transition: 0.3s ease;
+}
+
+.projekt-btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    box-shadow: 0 0 20px var(--main-color);
+    transform: translateY(-2px);
+}
+
+
+.projekt-blok {
+    max-width: 1300px;
+    margin: 0 auto 48px auto;
+}
+
+.projekt-blok img {
+    max-width: 600px;
+    height: auto;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.projekt-blok p {
+    margin-top: 16px;
+    line-height: 1.7;
+}
